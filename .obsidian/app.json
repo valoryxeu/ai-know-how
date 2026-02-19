@@ -1,0 +1,10 @@
+{
+  "useMarkdownLinks": true,
+  "newLinkFormat": "relative",
+  "attachmentFolderPath": "docs/assets",
+  "newFileLocation": "folder",
+  "newFileFolderPath": "_inbox",
+  "showFrontmatter": true,
+  "strictLineBreaks": true,
+  "defaultViewMode": "source"
+}

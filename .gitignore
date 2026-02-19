@@ -1,0 +1,27 @@
+# MkDocs build output
+site/
+
+# Obsidian - keep config, ignore workspace/cache
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/plugins/
+.obsidian/core-plugins-migration.json
+.obsidian/hotkeys.json
+.obsidian/.obsidian/cache/
+.trash/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+*.swp
+*.swo
+*~

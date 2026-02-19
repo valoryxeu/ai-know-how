@@ -1,0 +1,55 @@
+name: Deploy to Cloudflare Pages
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install mkdocs-material
+
+      - name: Build MkDocs
+        run: mkdocs build
+
+      # Password protection using Staticrypt
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install Staticrypt
+        run: npm install -g staticrypt
+
+      - name: Encrypt site with password
+        run: |
+          # Encrypt all HTML files in site/ directory
+          find site -name "*.html" -exec staticrypt {} ${{ secrets.SITE_PASSWORD }} \
+            --short \
+            --template-title "AI Know-How" \
+            --template-instructions "Enter password to access the knowledge base." \
+            --template-color-primary "#7c4dff" \
+            --template-color-secondary "#1a1a2e" \
+            --template-button "Unlock" \
+            -o {} \;
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy site --project-name=ai-know-how

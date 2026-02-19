@@ -1,0 +1,118 @@
+# AI Know-How - MkDocs Material Configuration
+site_name: AI Know-How
+site_description: Personal AI & ML Knowledge Base
+site_url: https://ai-know-how.pages.dev
+
+theme:
+  name: material
+  language: en
+  palette:
+    # Dark mode (default)
+    - scheme: slate
+      primary: deep purple
+      accent: amber
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+    # Light mode
+    - scheme: default
+      primary: deep purple
+      accent: amber
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+  font:
+    text: Inter
+    code: JetBrains Mono
+  features:
+    - navigation.tabs           # Top-level sections as tabs
+    - navigation.sections       # Expandable sections in sidebar
+    - navigation.expand         # Auto-expand sections
+    - navigation.path           # Breadcrumbs
+    - navigation.top            # Back to top button
+    - navigation.indexes        # Section index pages
+    - search.suggest            # Search suggestions
+    - search.highlight          # Highlight search terms
+    - content.code.copy         # Copy button on code blocks
+    - content.tabs.link         # Link content tabs
+    - toc.follow                # TOC follows scroll
+  icon:
+    repo: fontawesome/brands/github
+
+# Navigation structure
+nav:
+  - Home: index.md
+  - Fundamentals:
+    - fundamentals/index.md
+  - LLMs:
+    - llms/index.md
+  - Tools:
+    - tools/index.md
+  - Agents:
+    - agents/index.md
+  - Coding:
+    - coding/index.md
+  - Business:
+    - business/index.md
+  - Research:
+    - research/index.md
+  - Resources:
+    - resources/index.md
+    - resources/glossary.md
+
+# Markdown extensions
+markdown_extensions:
+  # Python Markdown
+  - abbr
+  - admonition                   # Callout boxes (note, warning, tip, etc.)
+  - attr_list                    # Add HTML attributes to elements
+  - def_list                     # Definition lists
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true            # Anchor links on headings
+
+  # PyMdown Extensions
+  - pymdownx.arithmatex:         # Math equations (LaTeX)
+      generic: true
+  - pymdownx.betterem:           # Better emphasis handling
+      smart_enable: all
+  - pymdownx.caret               # ^^insert^^ and ^^superscript^^
+  - pymdownx.details             # Collapsible sections
+  - pymdownx.emoji:              # :emoji: support
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:          # Code syntax highlighting
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite        # Inline code highlighting
+  - pymdownx.keys                # Keyboard keys: ++ctrl+alt+del++
+  - pymdownx.mark                # ==highlighted text==
+  - pymdownx.smartsymbols        # Smart symbols (tm, (c), etc.)
+  - pymdownx.superfences:        # Fenced code blocks + Mermaid diagrams
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:             # Content tabs
+      alternate_style: true
+  - pymdownx.tasklist:           # Task lists with checkboxes
+      custom_checkbox: true
+  - pymdownx.tilde               # ~~strikethrough~~ and ~subscript~
+
+# Plugins
+plugins:
+  - search:
+      lang: en
+  - tags                         # Tag support
+
+# Extra CSS/JS
+extra_css:
+  - stylesheets/extra.css
+
+# Extra config
+extra:
+  social: []
+  generator: false               # Hide "Made with MkDocs" footer

@@ -1,0 +1,17 @@
+/* Custom styles for AI Know-How portal */
+
+/* Slightly wider content area */
+.md-grid {
+  max-width: 1400px;
+}
+
+/* Better tag styling */
+.md-tag {
+  font-size: 0.7rem;
+}
+
+/* Home page hero section */
+.hero {
+  text-align: center;
+  padding: 2rem 0;
+}
