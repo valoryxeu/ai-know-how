@@ -1,7 +1,7 @@
 # AI Know-How - MkDocs Material Configuration
 site_name: AI Know-How
 site_description: Personal AI & ML Knowledge Base
-site_url: https://ai-know-how.pages.dev
+site_url: https://valoryxeu.github.io/ai-know-how/
 
 theme:
   name: material
